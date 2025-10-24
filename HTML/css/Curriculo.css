@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+    font-family: 'Orbitron', sans-serif;
+}
+
+img {
+    width: 200px; 
+    height: auto;
+}
+
+p {
+    color: white;
+    margin-left: 10px;
+}
+
+.navegacao {
+    list-style-type: none;
+    background-color: blue;
+    padding: 10px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+
+h1, h2, h3 {
+    color: white;
+    margin-left: 10px;
+}
+
+th, td {
+    border: 1px solid white;
+    color:white;
+    padding: 5px;
+}
+
+footer {
+    color: orange;
+    text-align: center;
+}
+
+#sumario {
+    color: white;
+    text-align: left;
+}
