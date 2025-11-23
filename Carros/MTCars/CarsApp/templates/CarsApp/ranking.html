@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking de Carros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 20px; }
+        .item { border: 1px solid #ccc; padding: 10px; border-radius: 5px; }
+        .links ul { margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Ranking de Carros</h1>
+    <ul>
+        {% for item in ranking_items %}
+            <li class="item">
+                <strong>Nome:</strong> {{ item.nome }} <br>
+                <strong>Ícone:</strong> {{ item.icone }} <br>
+                <strong>Descrição:</strong> {{ item.descricao }} <br>
+                <div class="links">
+                    <strong>Links:</strong>
+                    <ul>
+                        {% for link in item.links.all %}
+                            <li>{{ link.nome }} - <a href="{{ link.link }}" target="_blank">{{ link.link }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

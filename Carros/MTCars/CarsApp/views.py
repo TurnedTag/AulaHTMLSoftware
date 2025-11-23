@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from CarsApp.models import MTCars
+from CarsApp.models import MTCars, RankingItem
 
-# Create your views here.
-
+# =======================
+# View existente para pesquisa de carros
+# =======================
 def searchf(request):
     if request.method == 'GET':
         return render(request, 'CarsApp/home.html')
@@ -18,3 +19,14 @@ def searchf(request):
             'carros': carros                # os resultados da pesquisa
         }
         return render(request, 'CarsApp/home.html', contexto)
+
+
+# =======================
+# Nova view para exibir o ranking
+# =======================
+def ranking_view(request):
+    # Pega todos os itens do ranking do banco de dados
+    ranking_items = RankingItem.objects.all()
+    
+    # Renderiza no template passando a lista de itens
+    return render(request, 'CarsApp/ranking.html', {'ranking_items': ranking_items})
