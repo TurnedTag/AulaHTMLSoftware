@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - CarsApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        .login-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 8px;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .links {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .links a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h1>Login</h1>
+
+    <!-- Formulário de login -->
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Links úteis -->
+    <div class="links">
+        <p><a href="{% url 'password_reset' %}">Esqueci minha senha</a></p>
+        <p><a href="{% url 'password_change' %}">Trocar senha (logado)</a></p>
+        <p><a href="{% url 'home' %}">Voltar para Home</a></p>
+    </div>
+</div>
+
+</body>
+</html>
+git checkout -- CarsApp/views.py
+git checkout -- CarsApp/templates/registration/login.html
+git checkout -- CarsApp/templates/CarsApp/ranking.html
+

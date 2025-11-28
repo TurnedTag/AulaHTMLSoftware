@@ -11,4 +11,5 @@ urlpatterns = [
     path('spiff/', views.curriculo_spiff, name='curriculo_spiff'),
     # essa rota pode ser acessada em /curriculo/spiff/v2/
     path('spiff/v2/', views.curriculo_spiff_v2, name='curriculo_spiff_v2'),
+    path('login/', views.login, name="login")
 ]

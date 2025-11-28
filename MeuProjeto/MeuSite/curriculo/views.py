@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
+
+def login(request):
+    return render(request, 'curriculo/login.html')
 # Create your views here.
+@login_required
 
 def curriculo_spiff(request):
     '''
@@ -15,6 +20,8 @@ def curriculo_spiff(request):
     @return: Rendered HTML response with resume page content
     '''
     return render(request, 'curriculo/curriculo-v1.html')
+
+@login_required
 
 def curriculo_spiff_v2(request):
     '''

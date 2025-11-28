@@ -20,13 +20,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-2b7r8g036offp-iile#=_59bh0d8t$u%0-3f*khex^mi3%2==a"
+SECRET_KEY = "django-insecure-d=k%8q7g6gfd8bf9^hvkx6$&vt*44(^bfdb+ubp7o$9w8i41!3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost:8000', 
+    'http://localhost:8000',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -37,8 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'MeuSite',      # esse já deveria existir aqui
-    'curriculo',    # esse é novo
+    'MeuSite',
+    'curriculo',
 ]
 
 MIDDLEWARE = [
@@ -116,9 +122,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGOUT_REDIRECT_URL = '/accounts/login/'  # Para onde vai após logout
+LOGIN_URL = '/accounts/login/'       # URL de login (padrão)
+# ATENÇÃO!!! Troque o valor da variável abaixo para que ela seja uma das rotas
+# válidas no seu arquivo MeuSite/curriculo/urls.py
+LOGIN_REDIRECT_URL = '/curriculo/spiff/'   # Para onde vai após login
+
+# Configurações de e-mail para recuperação de senha
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

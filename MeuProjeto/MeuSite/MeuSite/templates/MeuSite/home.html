@@ -13,5 +13,13 @@
         <li><a href="{% url 'curriculo:curriculo_spiff' %}">Currículo do Spiff</a></li>
         <li><a href="{% url 'curriculo:curriculo_spiff_v2' %}">Currículo responsivo do Spiff</a></li>
     </ul>
+
+    <h2>Área de controle de acesso</h2>
+    <ul>
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><form method='POST' action="{% url 'logout' %}">{% csrf_token %}<button type='submit'>Logout</button></form></li>
+        <li><a href="{% url 'password_change' %}">Trocar senha (somente para usuários logados)</a></li>
+        <li><a href="{% url 'password_reset' %}">Redefinir senha (para usuários que esqueceram a senha)</a></li>
+    </ul>
 </body>
-</html>
+</html>python manage.py runserver
